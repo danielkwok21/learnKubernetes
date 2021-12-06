@@ -1,0 +1,28 @@
+# Copied from https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment # custom defined name
+  labels:
+    app: nginx # Refer to 1. Labels
+spec:
+  replicas: 3 # min number of instance running at any given time
+  selector:
+    matchLabels:
+      app: nginx # Refer to 1. Labels
+  template:
+    metadata:
+      labels:
+        app: nginx # Refer to 1. Labels
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2 # app's base image
+        ports:
+        - containerPort: 80 # exposed port
+
+# 1. Labels
+# These are like custom tags. It's how pods are found. Kinda like css classes
+# As long as the pods' labels are the same, it'll be considered to belong to
+# this deployment
