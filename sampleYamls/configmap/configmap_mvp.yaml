@@ -1,8 +1,0 @@
-# Copied & modified from https://kubernetes.io/docs/concepts/configuration/configmap/#configmaps-and-pods
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: nginx-configmap # custom defined name
-data:
-  # 1. bread and butter. Simple key-value pairs here
-  my_environment: dev
