@@ -4,3 +4,12 @@ all lessons are in PR tab.
 
 # directories
 - `src` source code for a simple go server. we'll use this to build the image to be used for all lessons
+
+# handy commands
+```bash
+# build & run docker image
+task docker:build
+docker run -p 8080:8080 helloserver
+curl http://localhost:8080
+
+```

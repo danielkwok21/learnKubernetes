@@ -1,0 +1,7 @@
+version: '3'
+
+tasks:
+  docker-build:
+    desc: "Build Docker image (depends on build)"
+    cmds:
+      - docker build -f Dockerfile -t helloserver ./src
