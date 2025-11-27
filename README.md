@@ -8,8 +8,8 @@ all lessons are in PR tab.
 # handy commands
 ```bash
 # build & run docker image
-task docker:build
-docker run -p 8080:8080 helloserver
+docker build -f Dockerfile -t helloserver:<tagnumber> ./src
+docker run -p 8080:8080 helloserver -d
 curl http://localhost:8080
 
 ```
