@@ -39,7 +39,7 @@ func echoHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/", echoHandler)
-	addr := ":8080"
+	addr := ":80"
 	fmt.Println("Starting server on", addr)
 	if err := http.ListenAndServe(addr, nil); err != nil {
 		fmt.Println("Server error:", err)

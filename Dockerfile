@@ -5,10 +5,7 @@ WORKDIR /src
 COPY . ./
 
 # build a static Linux binary
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -o /hello ./
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -o /demo ./
 
-# Final minimal image
-FROM scratch
-COPY --from=builder /hello /hello
-EXPOSE 8080
-ENTRYPOINT ["/hello"]
+EXPOSE 80
+ENTRYPOINT ["/demo"]

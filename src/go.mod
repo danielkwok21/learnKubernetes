@@ -1,4 +1,4 @@
-module github.com/danielkwok/helloserver
+module github.com/danielkwok/demo
 
 go 1.20
 
