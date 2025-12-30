@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"os"
 )
 
 func echoHandler(w http.ResponseWriter, r *http.Request) {
@@ -39,6 +40,16 @@ func echoHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/", echoHandler)
+	http.HandleFunc("/secret", func(w http.ResponseWriter, r *http.Request) {
+		body, err := os.ReadFile("/secrets/secrets.txt")
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+
+		w.Write(body)
+	})
+
 	addr := ":80"
 	fmt.Println("Starting server on", addr)
 	if err := http.ListenAndServe(addr, nil); err != nil {
