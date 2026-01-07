@@ -12,7 +12,6 @@ docker build -f Dockerfile -t demo:latest ./src
 docker run -p 80:80 demo -d
 curl http://localhost:80
 
-
 # start nginx in ingress-nginx namespace
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm repo update
@@ -21,4 +20,7 @@ helm upgrade --install ingress-nginx ingress-nginx/ingress-nginx \
   --create-namespace
   --version 4.11.0
 kubectl get pods -n ingress-nginx
+
+# decrypt secrets
+SOPS_AGE_KEY_FILE=key.txt  sops -d demo/templates/secrets.encrypted.yaml  > demo/templates/secrets.yaml              
 ```
