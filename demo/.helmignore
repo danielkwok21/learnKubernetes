@@ -21,3 +21,6 @@
 .idea/
 *.tmproj
 .vscode/
+
+# ignore encrypted secrets as the k8s syntax inside is invalid
+secrets.encrypted.yaml
