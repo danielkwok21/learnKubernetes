@@ -6,6 +6,8 @@ cliVersion: 4.11.0
 domain: example.com
 layout:
 - go.kubebuilder.io/v4
+plugins:
+  autoupdate.kubebuilder.io/v1-alpha: {}
 projectName: operator
 repo: example.com
 resources:
